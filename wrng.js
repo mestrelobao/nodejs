@@ -1,9 +1,3 @@
-
-
-
-
-
-
 var veronica = "";
 var normando = "";
 function email(){
