@@ -1,0 +1,100 @@
+//falta validar data.
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+
+async function funcao() {
+let mes = document.getElementById("mes").value;
+let dia = document.getElementById("dia").value;
+const data = mes+dia;
+     const obj = {
+"data": data
+};
+     
+    const response = await fetch("https://3.17.190.32/post", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(obj),
+    });
+    const result = await response.json();
+    console.log("Success:", result);
+
+
+  document.getElementById("linha1").innerHTML = result[0];
+  document.getElementById("linha2").innerHTML = result[1];
+  document.getElementById("linha3").innerHTML = result[2];
+  if ( result[3] ){ document.getElementById("linha4").innerHTML = result[3];} else { document.getElementById("linha4").innerHTML =""};
+
+}
+ 
+</script>
+</head>
+<body>
+  <h1>Tábua de maré de 2024</h1>
+<form>
+Selecione o mês desejado: 
+<select id="mes">
+  <option>janeiro</option>
+  <option>fevereiro</option>
+  <option>março</option>
+  <option>abril</option>
+  <option>maio</option>
+  <option>junho</option>
+  <option>julho</option>
+  <option>agosto</option>
+  <option>setembro</option>
+  <option>outubro</option>
+  <option>novembro</option>
+  <option>dezembro</option>
+</select>
+<br><br>
+Selecione o dia desejado: 
+<select id="dia">
+  <option>1</option>
+  <option>2</option>
+  <option>3</option>
+  <option>4</option>
+  <option>5</option>
+  <option>6</option>
+  <option>7</option>
+  <option>8</option>
+  <option>9</option>
+  <option>10</option>
+  <option>11</option>
+  <option>12</option>
+  <option>13</option>
+  <option>14</option>
+  <option>15</option>
+  <option>16</option>
+  <option>17</option>
+  <option>18</option>
+  <option>19</option>
+  <option>20</option>
+  <option>21</option>
+  <option>22</option>
+  <option>23</option>
+  <option>24</option>
+  <option>25</option>
+  <option>26</option>
+  <option>27</option>
+  <option>28</option>
+  <option>29</option>
+  <option>30</option>
+  <option>31</option>
+</select>
+
+<input type="button" onclick="funcao()" value="OK">
+</form>
+
+<p id="linha1"></p>
+<p id="linha2"></p>
+<p id="linha3"></p>
+<p id="linha4"></p>
+<p id="linha5"></p>
+
+</body>
+</html>
